@@ -2,17 +2,33 @@
 
 <h3>String Interpolation</h3>
 
-
+<p>Bienvenido {{nombre}} {{apellido}}</p>
+<!-- NO LLAMAR A FUNCIONES EN EL HTML SALVO SI USAMOS EL EVENT BINDING O SIGNALS -->
+<!-- <p>Bienvenido {{getNombreCompleto()}}</p> -->
+<p>Bienvenido {{nombreCompleto}}</p>
 
 <h3>Property Binding</h3>
 
+<!-- String interpolation -->
+<!-- <img src="{{urlImagen}}" alt=""> -->
+
+<img [src]="urlImagen" alt="Logo de {{logo}}" width="100">
+
+<input type="text" [value]="nombre">
+<!-- <input type="text" value="{{nombre}}"> -->
 
 
 <h3>Event Binding</h3>
 
+<button type="button" (click)="saludar()">Saludar</button>
+<button type="button" (click)="vaciarNombre()">Vaciar nombre</button>
+
+<input type="text" (input)="cambiarNombre($event)">
 
 
 <h3>Two Way Binding</h3>
 
+<!-- Usamos la directiva de atributo: ngModel -->
+<input type="text" [(ngModel)]="nombre">
 
-
+<input type="text" [value]="nombre" (input)="cambiarNombre($event)">

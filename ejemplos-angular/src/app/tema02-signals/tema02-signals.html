@@ -1,0 +1,25 @@
+<h2>Tema 02: Signals</h2>
+
+
+<div>
+    <label for="precio">Precio:</label>
+    <input type="number" [(ngModel)]="precio">
+    <button type="button" (click)="duplicarPrecio()">Precio * 2</button>
+    <button type="button" (click)="ponerGratis()">Gratis</button>
+</div>
+
+<div>
+    <label for="cantidad">Cantidad</label>
+    <!-- Contador
+     - incrementar en 1 al pulsar en el botón de +
+     - decrementar en 1 al pulsar en el botón de -
+     - la cantidad no puede ser menos de 0
+     -->
+
+</div>
+
+<div>
+    <p>Precio: {{precio()}}</p>
+    <p>Cantidad:</p>
+    <p>Total:</p>
+</div>
