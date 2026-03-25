@@ -26,6 +26,8 @@ export class Tema01DataBinding {
   urlImagen: string = 'https://wata.es/wp-content/uploads/2026/07/Angular-logo-ES.webp'
   logo: string = 'Angular'
 
+  textoAlt: string = 'Logo de ' + this.logo
+
   getNombreCompleto(): string {
     return `${this.nombre} ${this.apellido}`
   }

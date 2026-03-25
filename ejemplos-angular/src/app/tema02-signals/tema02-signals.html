@@ -9,17 +9,36 @@
 </div>
 
 <div>
-    <label for="cantidad">Cantidad</label>
-    <!-- Contador
-     - incrementar en 1 al pulsar en el botón de +
-     - decrementar en 1 al pulsar en el botón de -
-     - la cantidad no puede ser menos de 0
-     -->
+    <!--
+        EJERCICIO: Contador
+        - incrementar en 1 al pulsar en el botón de +
+        - decrementar en 1 al pulsar en el botón de -
+        - la cantidad no puede ser menos de 0
+    -->
+    <label for="cantidad">Cantidad:</label>
+    <span>{{ cantidad() }}</span>
 
+    <button type="button" (click)="decrementar()">-</button>
+    <button type="button" (click)="incrementar()">+</button>
+</div>
+
+<div>
+    <!--
+        EJERCICIO: Contador
+        - incrementar en 1 al pulsar en el botón de +
+        - decrementar en 1 al pulsar en el botón de -
+        - la cantidad no puede ser menos de 0
+    -->
+    <label for="cantidad">Decuento:</label>
+    <span>{{ descuento() }}</span>
+
+    <input type="range" min="0" max="100" step="10" [(ngModel)]="descuento">
 </div>
 
 <div>
     <p>Precio: {{precio()}}</p>
-    <p>Cantidad:</p>
-    <p>Total:</p>
+    <p>Cantidad: {{ cantidad() }}</p>
+    <p>Total sin descuentos: {{total()}}€</p>
+    <p>Descuento: {{descuento()}}%</p>
+    <p>Total con descuentos: {{totalConDescuentos()}}€</p>
 </div>
