@@ -1,1 +1,9 @@
-<p>producto works!</p>
+<app-sugus [color]="sugus().color" [sabor]="sugus().sabor"></app-sugus>
+
+<div>
+	<button type="button" (click)="decrementar()">-</button>
+	<span>{{ cantidad() }}</span>
+	<button type="button" (click)="incrementar()">+</button>
+</div>
+
+<button type="button" (click)="agregar()">Añadir</button>

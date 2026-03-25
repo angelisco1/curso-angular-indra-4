@@ -1,11 +1,40 @@
 <h2>Tema 03: Input y Output</h2>
 
-<app-sugus></app-sugus>
 
-<app-sugus color="blue" sabor="piña"></app-sugus>
-<app-sugus color="orange" sabor="naranja"></app-sugus>
+<h3>Sugus</h3>
+<div class="fila">
+	<app-sugus></app-sugus>
+	<app-sugus color="blue" sabor="piña"></app-sugus>
+	<app-sugus color="orange" sabor="naranja"></app-sugus>
+	<app-sugus [color]="sugusFresa.c" [sabor]="sugusFresa.s"></app-sugus>
+</div>
 
-<app-sugus [color]="sugusFresa.c" [sabor]="sugusFresa.s"></app-sugus>
 
 
-<!-- <app-producto></app-producto> -->
+<h3>Productos de la tienda</h3>
+<div class="fila">
+
+	<app-producto
+		[sugus]="{sabor: 'limón', color: 'gold'}"
+		(onAgregarProducto)="agregarProducto($event)"></app-producto>
+
+	<app-producto
+		[sugus]="{sabor: 'naranja', color: 'orange'}"
+		(onAgregarProducto)="agregarProducto($event)"></app-producto>
+
+	<app-producto
+		[sugus]="{sabor: 'fresa', color: 'red'}"
+		(onAgregarProducto)="agregarProducto($event)"></app-producto>
+
+	<app-producto
+		[sugus]="{sabor: 'piña', color: 'blue'}"
+		(onAgregarProducto)="agregarProducto($event)"></app-producto>
+
+</div>
+
+
+<h3>Cesta</h3>
+<div>
+
+</div>
+
