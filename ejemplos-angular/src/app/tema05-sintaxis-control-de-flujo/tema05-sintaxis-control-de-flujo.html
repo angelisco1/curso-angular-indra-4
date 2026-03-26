@@ -2,13 +2,29 @@
 
 <h3>if</h3>
 
-<div>
-	<input type="text" placeholder="Email">
-	<input type="password" placeholder="Password">
-	<button type="button">Login</button>
-</div>
 
-<button type="button">Logout</button>
+<!-- <button type="button" *ngIf="usuario; else loginForm">Logout</button>
+
+<ng-template #loginForm>
+	<div>
+		<input type="text" placeholder="Email" [(ngModel)]="email">
+		<input type="password" placeholder="Password" [(ngModel)]="password">
+		<button type="button" (click)="login()">Login</button>
+		<p>{{error()}}</p>
+	</div>
+</ng-template> -->
+
+
+@if (usuario()) {
+	<button type="button" (click)="logout()">Logout</button>
+} @else {
+	<div>
+		<input type="text" placeholder="Email" [(ngModel)]="email">
+		<input type="password" placeholder="Password" [(ngModel)]="password">
+		<button type="button" (click)="login()">Login</button>
+		<p>{{error()}}</p>
+	</div>
+}
 
 
 <h3>for</h3>
@@ -26,13 +42,114 @@
 		</tr>
 	</thead>
 	<tbody>
+		<!--
+			<tr *ngFor="let producto of productos; track $index; let pos = $index; let esPrimera = $first; let esUltima = $last; let esPar = $even; let total = $count" [class]="{esPrimera: esPrimera, esUltima: esUltima, esPar: esPar}">
+				<td>{{pos + 1}}/{{total}}</td>
+				<td>{{producto.id}}</td>
+				<td>{{producto.nombre}}</td>
+				<td>{{producto.precio}}</td>
+				<td>{{producto.stock}}</td>
+				<td>{{producto.stock * producto.precio}}</td>
+				<td>{{producto.stock < 30 ? 'Poco stock' : ''}}</td>
+			</tr>
+		-->
 
+		@for (producto of productos(); track $index) {
+			<!-- <tr [class.esPrimera]="$first" [class.esUltima]="$last" [class.esPar]="$even"> -->
+			<tr [class]="{esPrimera: $first, esUltima: $last, esPar: $even}">
+				<td>{{$index + 1}}/{{$count}}</td>
+				<td>{{producto.id}}</td>
+				<td>{{producto.nombre}}</td>
+				<td>{{producto.precio}}</td>
+				<td>{{producto.stock}}</td>
+				<td>{{producto.stock * producto.precio}}</td>
+				<!-- <td>{{producto.stock < 30 ? 'Poco stock' : ''}}</td> -->
+				<!-- <td>{{producto.stock | toAlert}}</td> -->
+				<td>{{producto.stock | toAlert:'Pide más productos':120}}</td>
+			</tr>
+		} @empty {
+			<tr>
+				<td colspan="7" [class.esPar]="true">No hay datos</td>
+			</tr>
+		}
 	</tbody>
 </table>
 
 
 <h3>switch</h3>
 
-<p>Puedes añadir, editar y eliminar productos de la tienda</p>
-<p>Puedes añadir productos a la tienda</p>
-<p>Solo puedes ver el listado de productos</p>
+<!-- 
+@if (usuario()) {
+	<div [ngSwitch]="usuario()!.rol">
+		<p *ngSwitchCase="'admin'">Puedes añadir, editar y eliminar productos de la tienda</p>
+		<p *ngSwitchCase="'manager'">Puedes añadir productos a la tienda</p>
+		<p *ngSwitchCase="'base'">Solo puedes ver el listado de productos</p>
+		<p *ngSwitchDefault>Espera a que te asignen un rol</p>
+	</div>
+} @else {
+	<p>Logueate para ver lo que puedes hacer</p>
+}
+-->
+
+
+@if (usuario()) {
+	@switch (usuario()!.rol) {
+		@case ('admin') {
+			<p>Puedes añadir, editar y eliminar productos de la tienda</p>
+		}
+		@case ('manager') {
+			<p>Puedes añadir productos a la tienda</p>
+		}
+		@case ('base') {
+			<p>Solo puedes ver el listado de productos</p>
+		}
+		@default {
+			<p>Espera a que te asignen un rol</p>
+		}
+	}
+} @else {
+	<p>Logueate para ver lo que puedes hacer</p>
+}
+
+
+
+<h3>Ejercicio</h3>
+
+
+<!-- 
+	Filtrar por stock entre X e Y
+	filtrar elementos entre 10 y 100 -> zapatillas, taza de SW y tijeras
+	- form con ngmodel para los limites
+	- computed
+-->
+
+<table>
+  <thead>
+		<tr>
+			<th>Nº</th>
+			<th>Id</th>
+			<th>Nombre</th>
+			<th>Precio</th>
+			<th>Stock</th>
+			<th>Posibles ganancias</th>
+			<th>Alertas</th>
+		</tr>
+	</thead>
+	<tbody>
+		@for (producto of productos(); track $index) {
+			<tr [class]="{esPrimera: $first, esUltima: $last, esPar: $even}">
+				<td>{{$index + 1}}/{{$count}}</td>
+				<td>{{producto.id}}</td>
+				<td>{{producto.nombre}}</td>
+				<td>{{producto.precio}}</td>
+				<td>{{producto.stock}}</td>
+				<td>{{producto.stock * producto.precio}}</td>
+				<td>{{producto.stock | toAlert:'Pide más productos':120}}</td>
+			</tr>
+		} @empty {
+			<tr>
+				<td colspan="7" [class.esPar]="true">No hay datos</td>
+			</tr>
+		}
+	</tbody>
+</table>
