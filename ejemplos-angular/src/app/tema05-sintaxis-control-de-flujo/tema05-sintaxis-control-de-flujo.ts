@@ -1,5 +1,5 @@
-import { Component, signal } from '@angular/core';
-import { ProductosTienda, Usuario, Usuarios } from './types/index.type';
+import { Component, computed, signal } from '@angular/core';
+import { ProductosTienda, ProductoTienda, Usuario, Usuarios } from './types/index.type';
 import { FormsModule } from '@angular/forms';
 import { ToAlertPipe } from './pipes/to-alert-pipe';
 
@@ -45,6 +45,17 @@ export class Tema05SintaxisControlDeFlujo {
     { id: 1033, nombre: 'Tijeras', precio: 4.95, stock: 10 },
     { id: 5182, nombre: 'Calendario grande', precio: 3.95, stock: 2000 },
   ])
+
+
+  limInferior = signal<number>(10)
+  limSuperior = signal<number>(100)
+
+  productosFiltrados = computed<ProductosTienda>(() => {
+    const resultado = this.productos().filter((producto: ProductoTienda) => {
+      return producto.stock >= this.limInferior() && producto.stock <= this.limSuperior()
+    })
+    return resultado
+  })
 
 
   login() {

@@ -1,0 +1,40 @@
+<h3>Reactivo</h3>
+
+<form [formGroup]="formulario" (ngSubmit)="registrarUsuario()">
+  <div>
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" formControlName="nombre">
+  </div>
+
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" id="email" formControlName="email">
+  </div>
+
+  <div>
+    <label for="password">Contraseña:</label>
+    <input type="password" id="password" formControlName="password">
+    @if (passwordTouched && erroresPassword) {
+      <ul>
+        @for (error of erroresPassword | keyvalue; track $index) {
+          @switch (error.key) {
+            @case ('required') {
+              <li>El campo es obligatorio</li>
+            }
+            @case ('minlength') {
+              <li>Necesitas {{error.value.requiredLength}} caracteres, te faltan {{error.value.requiredLength - error.value.actualLength}}</li>
+            }
+            @case ('mayus') {
+              <li>Tiene que tener mayúsculas y minúsculas</li>
+            }
+            @case ('simbolos') {
+              <li>Necesitas usar al menos un símbolo de los siguientes: {{error.value}}</li>
+            }
+          }
+        }
+      </ul>
+    }
+  </div>
+
+  <button type="submit">Registro</button>
+</form>

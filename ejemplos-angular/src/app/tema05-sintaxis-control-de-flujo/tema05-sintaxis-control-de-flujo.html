@@ -43,7 +43,7 @@
 	</thead>
 	<tbody>
 		<!--
-			<tr *ngFor="let producto of productos; track $index; let pos = $index; let esPrimera = $first; let esUltima = $last; let esPar = $even; let total = $count" [class]="{esPrimera: esPrimera, esUltima: esUltima, esPar: esPar}">
+			<tr *ngFor="let producto of productos; let pos = index; let esPrimera = first; let esUltima = last; let esPar = even; let total = count" [class]="{esPrimera: esPrimera, esUltima: esUltima, esPar: esPar}">
 				<td>{{pos + 1}}/{{total}}</td>
 				<td>{{producto.id}}</td>
 				<td>{{producto.nombre}}</td>
@@ -54,7 +54,7 @@
 			</tr>
 		-->
 
-		@for (producto of productos(); track $index) {
+		@for (producto of productos(); track producto.id) {
 			<!-- <tr [class.esPrimera]="$first" [class.esUltima]="$last" [class.esPar]="$even"> -->
 			<tr [class]="{esPrimera: $first, esUltima: $last, esPar: $even}">
 				<td>{{$index + 1}}/{{$count}}</td>
@@ -123,6 +123,16 @@
 	- computed
 -->
 
+<div>
+	<label for="inferior">Lim. Inferior:</label>
+	<input type="number" [(ngModel)]="limInferior">
+</div>
+
+<div>
+	<label for="superior">Lim. Superior:</label>
+	<input type="number" [(ngModel)]="limSuperior">
+</div>
+
 <table>
   <thead>
 		<tr>
@@ -136,7 +146,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		@for (producto of productos(); track $index) {
+		@for (producto of productosFiltrados(); track producto.id) {
 			<tr [class]="{esPrimera: $first, esUltima: $last, esPar: $even}">
 				<td>{{$index + 1}}/{{$count}}</td>
 				<td>{{producto.id}}</td>

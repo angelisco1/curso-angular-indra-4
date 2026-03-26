@@ -1,0 +1,20 @@
+<h3>De plantilla</h3>
+
+<form #formulario="ngForm" (ngSubmit)="registrarUsuario(formulario)">
+  <div>
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" [ngModel]="datosRegistro().nombre" required>
+  </div>
+
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" [ngModel]="datosRegistro().email">
+  </div>
+
+  <div>
+    <label for="password">Contraseña:</label>
+    <input type="password" id="password" name="password" [ngModel]="datosRegistro().password">
+  </div>
+
+  <button type="submit" [disabled]="formulario.invalid">Registro</button>
+</form>
