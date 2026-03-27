@@ -8,4 +8,17 @@ import { Component } from '@angular/core';
 })
 export class Tema08Referencias {
 
+
+  play(media: HTMLMediaElement) {
+    console.log(media)
+    console.dir(media)
+    // document.querySelector('video')?.play()
+    media.play()
+  }
+  
+  pause(media: HTMLMediaElement) {
+    // document.querySelector('video')?.pause()
+    media.pause()
+  }
+
 }

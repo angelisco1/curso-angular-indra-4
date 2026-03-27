@@ -2,10 +2,12 @@
 
 <!-- <button type="button" (click)="mostrarMensaje('Pago realizado correctamente')">{{'mostrar_mensaje' | traducir}}</button> -->
 <button type="button" (click)="mostrarMensaje('Pago realizado correctamente')">{{mostrarMensajeTexto()}}</button>
-<button type="button" (click)="mostrarError('404 Not found')">Mostrar error</button>
+<button type="button" (click)="mostrarError('404 Not found')">{{mostrarErrorTexto()}}</button>
 
 <select [value]="lenguajeSeleccionado().codigo" (change)="cambiarLang($event)">
-  @for (lenguaje of lenguajes; track $index) {
+  @for (lenguaje of lenguajes; track lenguaje.codigo) {
     <option [value]="lenguaje.codigo">{{lenguaje.texto}}</option>
   }
 </select>
+
+<app-bienvenida></app-bienvenida>

@@ -3,13 +3,11 @@ import { Logger } from './services/logger';
 import { Lang, Traductor } from './services/traductor';
 import { FormsModule } from '@angular/forms';
 import { JsonPipe } from '@angular/common';
+import { Bienvenida } from "./bienvenida/bienvenida";
 
 @Component({
   selector: 'app-tema07-servicios',
-  imports: [
-    FormsModule,
-    JsonPipe,
-  ],
+  imports: [Bienvenida],
   templateUrl: './tema07-servicios.html',
   styleUrl: './tema07-servicios.css',
 })
@@ -22,6 +20,11 @@ export class Tema07Servicios {
   mostrarMensajeTexto = computed(() => {
     const lang = this.lenguajeSeleccionado()
     return this.traductor.traducir(lang, 'mostrar_mensaje')
+  })
+
+  mostrarErrorTexto = computed(() => {
+    const lang = this.lenguajeSeleccionado()
+    return this.traductor.traducir(lang, 'mostrar_error')
   })
 
   // constructor(
@@ -39,7 +42,11 @@ export class Tema07Servicios {
   }
 
   cambiarLang(event: Event) {
-    const lenguajeSeleccionado: Lang = this.traductor.lenguajes.find(l => l.codigo === (event.target as HTMLSelectElement).value) || this.lenguajes[0]
+    const lenguajeSeleccionado: Lang = this.traductor.lenguajes.find((l: Lang) => {
+      return l.codigo === (event.target as HTMLSelectElement).value
+    }) || this.lenguajes[0]
+    
+    
     this.traductor.lang.set(lenguajeSeleccionado)
   }
 }

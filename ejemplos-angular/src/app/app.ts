@@ -6,6 +6,7 @@ import { Tema04Pipes } from "./tema04-pipes/tema04-pipes";
 import { Tema05SintaxisControlDeFlujo } from "./tema05-sintaxis-control-de-flujo/tema05-sintaxis-control-de-flujo";
 import { Tema06Formularios } from "./tema06-formularios/tema06-formularios";
 import { Tema07Servicios } from "./tema07-servicios/tema07-servicios";
+import { Tema08Referencias } from "./tema08-referencias/tema08-referencias";
 
 
 @Component({
@@ -17,7 +18,8 @@ import { Tema07Servicios } from "./tema07-servicios/tema07-servicios";
     Tema04Pipes,
     Tema05SintaxisControlDeFlujo,
     Tema06Formularios,
-    Tema07Servicios
+    Tema07Servicios,
+    Tema08Referencias
 ],
   templateUrl: './app.html',
   styleUrl: './app.css'
