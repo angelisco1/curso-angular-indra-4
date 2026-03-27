@@ -1,1 +1,27 @@
-<p>new-meme works!</p>
+<h3>New meme</h3>
+
+<form [formGroup]="formMeme" (ngSubmit)="guardarMeme()">
+  <div>
+    <label for="texto1">Texto 1:</label>
+    <input type="text" id="texto1" formControlName="texto1">
+  </div>
+
+  <div>
+    <label for="texto2">Texto 2:</label>
+    <input type="text" id="texto2" formControlName="texto2">
+  </div>
+
+  <div>
+    <label for="url">Imagen:</label>
+    <input type="url" id="url" formControlName="url">
+  </div>
+
+  <div>
+    <label for="color">Color fuente:</label>
+    <input type="color" id="color" formControlName="color">
+  </div>
+
+  <button type="submit">Guardar</button>
+</form>
+
+<app-meme [meme]="formMeme.value"></app-meme>

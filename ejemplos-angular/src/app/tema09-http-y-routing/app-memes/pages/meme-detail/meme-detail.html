@@ -1,0 +1,5 @@
+<h3>Meme detail</h3>
+
+@if (meme()) {
+  <app-meme [meme]="meme()" (onVotar)="votarMeme($event)"></app-meme>
+}

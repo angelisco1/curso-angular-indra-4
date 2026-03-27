@@ -14,12 +14,16 @@ export class Memes {
     return this.http.get(`${this.URL_BASE}/memes`)
   }
 
-  createMeme() {
+  getMeme(id: string): Observable<any> {
+    return this.http.get(`${this.URL_BASE}/memes/${id}`)
+  }
 
-  }  
+  createMeme(nuevoMeme: any): Observable<any> {
+    return this.http.post(`${this.URL_BASE}/memes`, nuevoMeme)
+  }
 
-  voteMeme() {
-
+  voteMeme(meme: any): Observable<any> {
+    return this.http.patch(`${this.URL_BASE}/memes/${meme.id}`, {votos: meme.votos + 1})
   }
   
 }

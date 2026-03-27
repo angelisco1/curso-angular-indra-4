@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 
 @Component({
   selector: 'app-meme',
@@ -8,5 +8,10 @@ import { Component, input } from '@angular/core';
 })
 export class Meme {
   meme = input<any>(null)
+  onVotar = output<any>()
+
+  votar() {
+    this.onVotar.emit(this.meme)
+  }
 
 }

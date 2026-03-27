@@ -2,6 +2,6 @@
 
 <div class="fila">
   @for (meme of memeList(); track meme.id) {
-    <app-meme [meme]="meme"></app-meme>
+    <app-meme [routerLink]="['/memes', meme.id]" [meme]="meme" (onVotar)="votarMeme($event)"></app-meme>
   }
 </div>

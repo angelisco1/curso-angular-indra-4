@@ -1,20 +1,45 @@
 {
   "memes": [
     {
-      "id": 1,
+      "id": "1",
       "texto1": "Texto 1",
       "texto2": "Texto 2",
       "url": "https://ichef.bbci.co.uk/ace/ws/640/cpsprodpb/F1F2/production/_118283916_b19c5a1f-162b-410b-8169-f58f0d153752.jpg.webp",
       "color": "white",
-      "votos": 23
+      "votos": 27
     },
     {
-      "id": 2,
+      "id": "2",
       "texto1": "",
       "texto2": "This is fine",
       "url": "https://ichef.bbci.co.uk/ace/ws/640/cpsprodpb/F1F2/production/_118283916_b19c5a1f-162b-410b-8169-f58f0d153752.jpg.webp",
       "color": "white",
-      "votos": 28
+      "votos": 45
+    },
+    {
+      "texto1": "Texto 1",
+      "texto2": "Texto 2",
+      "url": "https://i0.wp.com/coplaco.com/wp-content/uploads/2019/04/MEMES.png",
+      "color": "#f93e51",
+      "votos": 5,
+      "id": "3"
+    },
+    {
+      "texto1": "Texto 1",
+      "texto2": "Texto 2",
+      "url": "https://i0.wp.com/coplaco.com/wp-content/uploads/2019/04/MEMES.png",
+      "color": "#f93e51",
+      "votos": 0,
+      "id": "U_7a72TgFUE"
+    },
+    {
+      "texto1": "Texto 1",
+      "texto2": "Texto 2",
+      "url": "https://img2.rtve.es/im/5805132/?w=900",
+      "color": "#bf53f9",
+      "votos": 0,
+      "id": "HUo9F3w5dYI"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
