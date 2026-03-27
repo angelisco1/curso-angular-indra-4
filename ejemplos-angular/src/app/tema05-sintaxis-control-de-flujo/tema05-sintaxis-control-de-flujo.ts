@@ -1,7 +1,8 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { ProductosTienda, ProductoTienda, Usuario, Usuarios } from './types/index.type';
 import { FormsModule } from '@angular/forms';
 import { ToAlertPipe } from './pipes/to-alert-pipe';
+import { Storage } from '../tema07-servicios/services/storage';
 
 @Component({
   selector: 'app-tema05-sintaxis-control-de-flujo',
@@ -35,6 +36,7 @@ export class Tema05SintaxisControlDeFlujo {
     },
   ])
 
+  storage = inject(Storage)
   usuario = signal<Usuario | null>(null)
   error = signal<string>('')
 
@@ -46,10 +48,8 @@ export class Tema05SintaxisControlDeFlujo {
     { id: 5182, nombre: 'Calendario grande', precio: 3.95, stock: 2000 },
   ])
 
-
   limInferior = signal<number>(10)
   limSuperior = signal<number>(100)
-
   productosFiltrados = computed<ProductosTienda>(() => {
     const resultado = this.productos().filter((producto: ProductoTienda) => {
       return producto.stock >= this.limInferior() && producto.stock <= this.limSuperior()
@@ -57,6 +57,10 @@ export class Tema05SintaxisControlDeFlujo {
     return resultado
   })
 
+  ngOnInit() {
+    const usuarioEnStorage = this.storage.getUsuario()
+    this.usuario.set(usuarioEnStorage)
+  }
 
   login() {
     const usuarioBuscado = this.usuariosRegistrados().find((usuario: Usuario) => {
@@ -65,6 +69,7 @@ export class Tema05SintaxisControlDeFlujo {
 
     if (usuarioBuscado) {
       this.usuario.set(usuarioBuscado)
+      this.storage.setUsuario(usuarioBuscado)
       this.error.set('')
     } else {
       this.error.set('Credenciales inválidas')
@@ -73,6 +78,7 @@ export class Tema05SintaxisControlDeFlujo {
 
   logout() {
     this.usuario.set(null)
+    this.storage.removeUsuario()
     this.error.set('')
   }
 

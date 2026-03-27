@@ -2,6 +2,7 @@ import { AbstractControl, ValidationErrors, ValidatorFn } from "@angular/forms";
 
 export class CustomValidators {
 
+  // Closure
   static passwordSegura2(simbolos: string, quieresMayus: boolean): ValidatorFn {
 
     return (control: AbstractControl): ValidationErrors | null => {

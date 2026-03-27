@@ -24,7 +24,7 @@ export class Plantilla {
     password: ''
   })
 
-  registrarUsuario(form: any) {
+  registrarUsuario(form: NgForm) {
     // console.log(this.datosRegistro())
 
     console.log(form)

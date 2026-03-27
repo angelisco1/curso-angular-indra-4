@@ -34,7 +34,8 @@ export class Reactivo {
   }
 
   registrarUsuario() {
-    console.log(this.formulario)
+    // console.log(this.formulario)
+    console.log(this.formulario.value)
   }
 
 }
