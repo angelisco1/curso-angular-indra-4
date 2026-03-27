@@ -1,0 +1,20 @@
+{
+  "memes": [
+    {
+      "id": 1,
+      "texto1": "Texto 1",
+      "texto2": "Texto 2",
+      "url": "https://ichef.bbci.co.uk/ace/ws/640/cpsprodpb/F1F2/production/_118283916_b19c5a1f-162b-410b-8169-f58f0d153752.jpg.webp",
+      "color": "white",
+      "votos": 23
+    },
+    {
+      "id": 2,
+      "texto1": "",
+      "texto2": "This is fine",
+      "url": "https://ichef.bbci.co.uk/ace/ws/640/cpsprodpb/F1F2/production/_118283916_b19c5a1f-162b-410b-8169-f58f0d153752.jpg.webp",
+      "color": "white",
+      "votos": 28
+    }
+  ]
+}

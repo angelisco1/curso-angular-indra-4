@@ -1,0 +1,26 @@
+div {
+  width: 350px;
+  height: 200px;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 15px;
+  position: relative;
+  overflow: hidden;
+}
+
+div img {
+  height: 100%;
+  object-fit: cover;
+}
+
+div p {
+  position: absolute;
+}
+
+div .arriba {
+  top: 10px;
+}
+
+div .abajo {
+  bottom: 10px;
+}

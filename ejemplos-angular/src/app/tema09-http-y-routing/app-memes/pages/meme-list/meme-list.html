@@ -1,0 +1,7 @@
+<h3>Meme list</h3>
+
+<div class="fila">
+  @for (meme of memeList(); track meme.id) {
+    <app-meme [meme]="meme"></app-meme>
+  }
+</div>

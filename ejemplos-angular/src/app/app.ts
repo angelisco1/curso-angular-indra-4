@@ -7,6 +7,7 @@ import { Tema05SintaxisControlDeFlujo } from "./tema05-sintaxis-control-de-flujo
 import { Tema06Formularios } from "./tema06-formularios/tema06-formularios";
 import { Tema07Servicios } from "./tema07-servicios/tema07-servicios";
 import { Tema08Referencias } from "./tema08-referencias/tema08-referencias";
+import { Tema09HttpYRouting } from "./tema09-http-y-routing/tema09-http-y-routing";
 
 
 @Component({
@@ -19,7 +20,8 @@ import { Tema08Referencias } from "./tema08-referencias/tema08-referencias";
     Tema05SintaxisControlDeFlujo,
     Tema06Formularios,
     Tema07Servicios,
-    Tema08Referencias
+    Tema08Referencias,
+    Tema09HttpYRouting
 ],
   templateUrl: './app.html',
   styleUrl: './app.css'
